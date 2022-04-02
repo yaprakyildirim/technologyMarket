@@ -1,0 +1,56 @@
+﻿@model List<technologyMarket.EntityLayer.Entitites.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<a class="btn btn-primary" href="/AdminCategory/Create">Add category</a>
+<br />
+<br />
+<table class="table table-bordered" id="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach(var item in Model)
+            {
+<tr>
+    <td>@item.Name</td>
+    <td>@item.Description</td>
+    @*<td>@Html.ActionLink("Sil","Delete",new { item.Id},new {@class="btn btn-danger",onclick="return confirm ('Do you want to delete?')" })
+        </td>*@
+    <td><a class="btn btn-danger btnSil" data-id="@item.Id">Delete</a></td>
+    <td><a class="btn btn-primary" href="/AdminCategory/Update/@item.Id">Güncelle</a></td>
+</tr>
+            }
+</table>
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#table").on("click", ".btnSil", function () {
+
+            var btn = $(this);
+            bootbox.confirm("Are you sure you want to delete?", function (result) {
+
+                if (result) {
+                    var id = btn.data("id");
+
+                    $.ajax({
+                        type: "GET",
+                        url: "/AdminCategory/Delete/" + id,
+                        success: function () {
+                            btn.parent().parent().remove();
+                        }
+                    });
+                } else {
+                    bootbox.confirm("Error");
+                }
+
+            })
+        });
+    });
+</script>
