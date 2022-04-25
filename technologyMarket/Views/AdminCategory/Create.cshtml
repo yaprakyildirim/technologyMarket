@@ -14,13 +14,13 @@
                 @Html.ValidationSummary(true, "", new { @class = "btn btn-danger" })
 
                 <div class="form-group">
-                    <label>Ad</label>
+                    <label>Name</label>
                     <input type="text" class="form-control" name="Name" />
                     @Html.ValidationMessageFor(x => x.Name, "",new { @style="color:red"})
                 </div>
                 <br />
                 <div class="form-group">
-                    <label>Açıklama</label>
+                    <label>Description</label>
                     <input type="text" class="form-control" name="Description" />
                     @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color:red" })
                 </div>

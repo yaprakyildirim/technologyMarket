@@ -22,7 +22,7 @@
     @*<td>@Html.ActionLink("Sil","Delete",new { item.Id},new {@class="btn btn-danger",onclick="return confirm ('Do you want to delete?')" })
         </td>*@
     <td><a class="btn btn-danger btnSil" data-id="@item.Id">Delete</a></td>
-    <td><a class="btn btn-primary" href="/AdminCategory/Update/@item.Id">Güncelle</a></td>
+    <td><a class="btn btn-primary" href="/AdminCategory/Update/@item.Id">Update</a></td>
 </tr>
             }
 </table>

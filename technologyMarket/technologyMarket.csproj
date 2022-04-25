@@ -53,6 +53,12 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -133,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,45 +159,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\slick.svg" />
-    <Content Include="electro-master\.gitattributes" />
-    <Content Include="electro-master\blank.html" />
-    <Content Include="electro-master\checkout.html" />
-    <Content Include="electro-master\css\bootstrap.min.css" />
-    <Content Include="electro-master\css\font-awesome.min.css" />
-    <Content Include="electro-master\css\nouislider.min.css" />
-    <Content Include="electro-master\css\slick-theme.css" />
-    <Content Include="electro-master\css\slick.css" />
-    <Content Include="electro-master\css\style.css" />
-    <Content Include="electro-master\fonts\fontawesome-webfont.svg" />
-    <Content Include="electro-master\fonts\slick.svg" />
-    <Content Include="electro-master\img\hotdeal.png" />
-    <Content Include="electro-master\img\logo.png" />
-    <Content Include="electro-master\img\product01.png" />
-    <Content Include="electro-master\img\product02.png" />
-    <Content Include="electro-master\img\product03.png" />
-    <Content Include="electro-master\img\product04.png" />
-    <Content Include="electro-master\img\product05.png" />
-    <Content Include="electro-master\img\product06.png" />
-    <Content Include="electro-master\img\product07.png" />
-    <Content Include="electro-master\img\product08.png" />
-    <Content Include="electro-master\img\product09.png" />
-    <Content Include="electro-master\img\shop01.png" />
-    <Content Include="electro-master\img\shop02.png" />
-    <Content Include="electro-master\img\shop03.png" />
-    <Content Include="electro-master\index.html" />
-    <Content Include="electro-master\js\bootstrap.min.js" />
-    <Content Include="electro-master\js\jquery.min.js" />
-    <Content Include="electro-master\js\jquery.zoom.min.js" />
-    <Content Include="electro-master\js\main.js" />
-    <Content Include="electro-master\js\nouislider.min.js" />
-    <Content Include="electro-master\js\slick.min.js" />
-    <Content Include="electro-master\product.html" />
-    <Content Include="electro-master\screenshot\Checkout.png" />
-    <Content Include="electro-master\screenshot\Index.png" />
-    <Content Include="electro-master\screenshot\Product.png" />
-    <Content Include="electro-master\screenshot\Regular.png" />
-    <Content Include="electro-master\screenshot\Store.png" />
-    <Content Include="electro-master\store.html" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -702,15 +671,6 @@
     <Content Include="Content\fonts\slick.eot" />
     <Content Include="Content\fonts\slick.ttf" />
     <Content Include="Content\fonts\slick.woff" />
-    <Content Include="electro-master\fonts\fontawesome-webfont.eot" />
-    <Content Include="electro-master\fonts\fontawesome-webfont.ttf" />
-    <Content Include="electro-master\fonts\fontawesome-webfont.woff" />
-    <Content Include="electro-master\fonts\fontawesome-webfont.woff2" />
-    <Content Include="electro-master\fonts\FontAwesome.otf" />
-    <Content Include="electro-master\fonts\slick.eot" />
-    <Content Include="electro-master\fonts\slick.ttf" />
-    <Content Include="electro-master\fonts\slick.woff" />
-    <Content Include="electro-master\README.md" />
     <Content Include="NiceAdmin\assets\chart-master\component.json" />
     <Content Include="NiceAdmin\assets\chart-master\docs\prettify.less" />
     <Content Include="NiceAdmin\assets\chart-master\docs\styles.less" />
@@ -806,6 +766,9 @@
     <Content Include="Views\AdminCategory\Index.cshtml" />
     <Content Include="Views\AdminCategory\Create.cshtml" />
     <Content Include="Views\AdminCategory\Update.cshtml" />
+    <Content Include="Views\AdminProduct\Index.cshtml" />
+    <Content Include="Views\AdminProduct\Create.cshtml" />
+    <Content Include="Views\AdminProduct\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
