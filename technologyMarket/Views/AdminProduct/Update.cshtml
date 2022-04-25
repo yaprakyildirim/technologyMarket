@@ -1,0 +1,65 @@
+﻿@model technologyMarket.EntityLayer.Entitites.Product
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="Name" value="@Model.Name" />
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" class="form-control" name="Description" value="@Model.Description" />
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>previous image</label>
+                    <img src="~/img/@Model.Image" width="70" height="70" />         
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Image, "Image", htmlAttributes: new {@class ="control-label-col-md-2" })
+                    <input type="file" class="form-control" name="File" />
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" class="form-control" name="Price" value="@Model.Price" />
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Stock</label>
+                    <input type="text" class="form-control" name="Stock" value="@Model.Stock"/>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Popular</label>
+                    @Html.EditorFor(x => x.Popular)
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Confirmation</label>
+                    @Html.EditorFor(x => x.IsApproved)
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Category</label>
+                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.ktgr, new { @class = "form-control" })
+                </div>
+                <br />
+                <button class="btn btn-primary" type="submit">Update</button>
+                <a href="/AdminProduct/Index" class="btn btn-primary">Product List</a>
+            </form>
+        </div>
+    </div>
+</div>

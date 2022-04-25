@@ -1,0 +1,55 @@
+﻿@model List<technologyMarket.EntityLayer.Entitites.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<a href="/AdminProduct/Create" class="btn btn-primary">Add</a>
+<br /><br />
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Popular</th>
+        <th>Confirmation</th>
+        <th>Image</th>
+        <th>Category</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach(var item in Model)
+            {
+<tr>
+    <td>@item.Name</td>
+    <td>@item.Description</td>
+    <td>@item.Price</td>
+    <td>@item.Stock</td>
+    <td>
+        @if (item.Popular == true)
+        {
+            <label class="btn btn-success">Yes</label>
+        }
+        else
+        {
+            <label class="btn btn-danger">No</label>
+        }
+    </td>
+    <td>
+        @if (item.IsApproved == true)
+        {
+            <label class="btn btn-success">Yes</label>
+        }
+        else
+        {
+            <label class="btn btn-danger">No</label>
+        }
+    </td>
+    <td><img src="~/img/@item.Image" width="80" height="80" /> Image</td>
+    <td>@item.Category.Name</td>
+    <td>@Html.ActionLink("Sil", "Delete", new { item.Id }, new { @class = "btn btn-danger", onclick = "return confirm ('Do you want to delete?')" })
+    <td><a class="btn btn-primary" href="/AdminProduct/Update/@item.Id">Update</a></td>
+</tr>
+                    }
+        </table>

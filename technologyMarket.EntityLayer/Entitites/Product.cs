@@ -10,7 +10,10 @@ namespace technologyMarket.EntityLayer.Entitites
     public class Product
     {
         public int Id { get; set; }
-
+        [Required(ErrorMessage = "You cannot leave the required field blank.")]
+        [Display(Name = "Name")]
+        [StringLength(50, ErrorMessage = "Must be a maximum of 50 characters.")]
+        public string Name { get; set; }
         [Required(ErrorMessage = "You cannot leave the required field blank.")]
         [Display(Name = "Description")]
         [StringLength(50, ErrorMessage = "Must be a maximum of 50 characters.")]
@@ -35,10 +38,6 @@ namespace technologyMarket.EntityLayer.Entitites
         [Required(ErrorMessage = "You cannot leave the required field blank.")]
         [Display(Name = "Image")]
         public string Image { get; set; }
-
-        [Required(ErrorMessage = "You cannot leave the required field blank.")]
-        [Display(Name = "Quantity")]
-        public int Quantity { get; set; }
 
         [Required(ErrorMessage = "You cannot leave the required field blank.")]
         [Display(Name = "Category")]
