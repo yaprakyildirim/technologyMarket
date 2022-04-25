@@ -7,8 +7,8 @@ using System.Web.Mvc;
 using technologyMarket.BusinessLayer.Concrete;
 using technologyMarket.DataAccessLayer.Context;
 using technologyMarket.EntityLayer.Entitites;
-using PagedList.Mvc;
 using PagedList;
+using PagedList.Mvc;
 
 namespace technologyMarket.Controllers
 {
@@ -18,9 +18,9 @@ namespace technologyMarket.Controllers
 
         ProductRepository productRepository = new ProductRepository();
         DataContext db = new DataContext();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa)
         {
-            return View(productRepository.List());
+            return View(productRepository.List().ToPagedList(sayfa,3));
         }
 
         public ActionResult Create()
