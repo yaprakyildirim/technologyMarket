@@ -1,0 +1,86 @@
+﻿@model technologyMarket.EntityLayer.Entitites.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Login | E-Shopper</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/css/prettyPhoto.css" rel="stylesheet">
+    <link href="~/Content/css/price-range.css" rel="stylesheet">
+    <link href="~/Content/css/animate.css" rel="stylesheet">
+    <link href="~/Content/css/main.css" rel="stylesheet">
+    <link href="~/Content/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/img/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+
+    <section id="form">
+        <!--form-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-1">
+                    <div class="login-form">
+                        <!--login form-->
+                        <h2>Login to your account</h2>
+                        <form action="/Account/Login" method="post">
+
+                            <input type="email" placeholder="Email Address" name="Email"/>
+                            <input type="password" placeholder="Password" name="Password"/>
+
+                            <button type="submit" class="btn btn-default">Login</button>
+                        </form>
+                    </div><!--/login form-->
+                </div>
+                <div class="col-sm-1">
+                    <h2 class="or">OR</h2>
+                </div>
+                <div class="col-sm-4">
+                    <div class="signup-form">
+                        <!--sign up form-->
+                        <h2>New User Signup!</h2>
+                        <form action="/Account/Register" method="post">
+                            <input type="text" placeholder="Name" name="Name" />
+                            @Html.ValidationMessageFor(x => x.Name, "", new { @style = "color:red" })
+                            <input type="text" placeholder="Surname" name="Surname" />
+                            @Html.ValidationMessageFor(x => x.Surname, "", new { @style = "color:red" })
+                            <input type="email" placeholder="Email Address" name="Email" />
+                            @Html.ValidationMessageFor(x => x.Email, "", new { @style = "color:red" })
+                            <input type="text" placeholder="User Name" name="Username" />
+                            @Html.ValidationMessageFor(x => x.Username, "", new { @style = "color:red" })
+                            <input type="password" placeholder="Password" name="Password" />
+                            @Html.ValidationMessageFor(x => x.Password, "", new { @style = "color:red" })
+                            <input type="password" placeholder="Repassword" name="RePassword" />
+                            @Html.ValidationMessageFor(x => x.RePassword, "", new { @style = "color:red" })
+                            <button type="submit" class="btn btn-default">Signup</button>
+                        </form>
+                    </div><!--/sign up form-->
+                </div>
+            </div>
+        </div>
+    </section><!--/form-->
+
+    <script src="~/Scripts/js/jquery.js"></script>
+    <script src="~/Scripts/js/price-range.js"></script>
+    <script src="~/Scripts/js/jquery.scrollUp.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/jquery.prettyPhoto.js"></script>
+    <script src="~/Scripts/js/main.js"></script>
+</body>
+</html>

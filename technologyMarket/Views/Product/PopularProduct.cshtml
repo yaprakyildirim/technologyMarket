@@ -1,0 +1,54 @@
+﻿<div class="recommended_items">
+    <div class="recommended-item-control">
+        <!--recommended_items-->
+        <h2 class="title text-center">POPULAR PRODUCTS</h2>
+        <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    @foreach (var item in ViewBag.popular)
+                    {
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="~/img/@item.Image" width="100" height="100" alt="" />
+                                        <h2>@item.Price</h2>
+                                        <p>@item.Name</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>}
+                    </div>
+
+                    <div class="item">
+                        @foreach (var item in ViewBag.popular)
+                        {
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="~/img/@item.Image" width="100" height="100" alt="" />
+                                            <h2>@item.Price</h2>
+                                            <p>@item.Name</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>}
+
+                    </div>
+                </div>
+                <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div><!--/recommended_items-->
+        </div>
+</div>
+
+
