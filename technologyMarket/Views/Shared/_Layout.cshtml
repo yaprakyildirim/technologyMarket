@@ -8,7 +8,7 @@
 
     <title>Technology Market</title>
 
-    
+
 </head>
 <body>
     <!-- HEADER -->
@@ -22,8 +22,29 @@
                     <li><a href="#"><i class="fa fa-map-marker"></i> İstanbul</a></li>
                 </ul>
                 <ul class="header-links pull-right">
-                    <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                    <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                         <li><a href=""><i class="fa fa-user"></i> @Session["Name"] @Session["Surname"]</a></li>
+
+
+                        <li><a href="/Account/LogOut"><i class="fa fa-lock"></i> Logout</a></li>
+                    }
+                    else
+                    {
+                          <li><a href="/Account/Login"><i class="fa fa-lock"></i> Login</a></li>
+                    }
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                         <li><a href="/Admin/Index"><i class="fa fa-lock"></i> Admin Panel</a></li>
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a href="/Cart/Index"><img src="~/Content/Image/sepet.png" width="30" height="30" /><label style="color:red">@*@{Html.RenderAction("TotalCount", "Cart");}*@</label>My Cart</a></li>
+                        <li><a href="/Sales/Index"><i class="fa fa-dollar"></i> Sales</a></li>
+                    }
                 </ul>
             </div>
         </div>
@@ -37,8 +58,8 @@
                     <!-- LOGO -->
                     <div class="col-md-3">
                         <div class="header-logo">
-                            <a href="#" class="logo">
-                                <img src="~/img/logo.png" href="Index" alt="">
+                            <a href="/Home/Index" class="logo">
+                                <img src="~/img/logo.png" href="/Home/Index" alt="">
                             </a>
                         </div>
                     </div>
@@ -139,7 +160,7 @@
             <div id="responsive-nav">
                 <!-- NAV -->
                 <ul class="main-nav nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="/Home/Index">Home</a></li>
                     <li><a href="#">Hot Deals</a></li>
                     <li><a href="#">Categories</a></li>
                     <li><a href="#">Laptops</a></li>

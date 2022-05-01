@@ -18,7 +18,7 @@ namespace technologyMarket.Controllers
 
         ProductRepository productRepository = new ProductRepository();
         DataContext db = new DataContext();
-        public ActionResult Index(int sayfa)
+        public ActionResult Index(int sayfa=1)
         {
             return View(productRepository.List().ToPagedList(sayfa,3));
         }

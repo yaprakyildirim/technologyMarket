@@ -1,4 +1,6 @@
-﻿@model List<technologyMarket.EntityLayer.Entitites.Product>
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<technologyMarket.EntityLayer.Entitites.Product>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -53,3 +55,5 @@
 </tr>
                     }
         </table>
+
+@Html.PagedListPager(Model,sayfa=>Url.Action("Index",new{ sayfa}),PagedListRenderOptions.Classic)
