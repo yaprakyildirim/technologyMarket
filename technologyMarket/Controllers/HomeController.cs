@@ -17,11 +17,6 @@ namespace technologyMarket.Controllers
             return View();
         }
 
-        public ActionResult Product()
-        {
-            return View();
-        }
-
         public ActionResult Checkout()
         {
             return View();

@@ -13,6 +13,7 @@ namespace technologyMarket.EntityLayer.Entitites
 
         [Display(Name = "Product")]
         public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
 
         [Display(Name = "Quantity")]
         public int Quantity { get; set; }

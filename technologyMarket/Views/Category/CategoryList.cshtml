@@ -1,20 +1,18 @@
 ﻿@model List<technologyMarket.EntityLayer.Entitites.Category>
-
 <div class="coll-sm-3" style="margin-top:30px">
     <div class="left-sidebar">
-        <div class="product-category">
-            <h2>Categories</h2>
-            <div class="product-name">
+        <div class="brands_products">
+            <h3 class="title">Categories</h3>
+            <div class="brands-name">
                 @foreach (var item in Model)
                 {
                     <ul class="nav nav-pills nav-stacked">
                         <li>
-                            <a href="~/Category/Details/@item.Id">
-                                <span class="pull-right">(@item.Products.Count)</span>
-                                @item.Name
+                            <a href="/Category/Details/@item.Id">
+                                <span class="pull-right">(@item.Products.Count)</span> @item.Name
                             </a>
                         </li>
-                    </ul> 
+                    </ul>
                 }
             </div>
         </div>
