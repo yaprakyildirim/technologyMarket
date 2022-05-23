@@ -1,35 +1,98 @@
 ﻿@model technologyMarket.EntityLayer.Entitites.User
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Login | E-Shopper</title>
-    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet">
-    <link href="~/Content/css/prettyPhoto.css" rel="stylesheet">
-    <link href="~/Content/css/price-range.css" rel="stylesheet">
-    <link href="~/Content/css/animate.css" rel="stylesheet">
-    <link href="~/Content/css/main.css" rel="stylesheet">
-    <link href="~/Content/css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/img/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/img/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/img/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="~/img/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
+<style>
+    #form {
+        display: block;
+        margin-bottom: 185px;
+        margin-top: 185px;
+        overflow: hidden;
+    }
 
-<body>
+    .login-form {
+    }
+
+    .signup-form {
+    }
+
+        .login-form h2,
+        .signup-form h2 {
+            color: #D10024;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .login-form form input,
+        .signup-form form input {
+            background: #F0F0E9;
+            border: medium none;
+            color: #696763;
+            display: block;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            height: 40px;
+            margin-bottom: 10px;
+            outline: medium none;
+            padding-left: 10px;
+            width: 100%;
+        }
+
+    .login-form form span {
+        line-height: 25px;
+    }
+
+        .login-form form span input {
+            width: 15px;
+            float: left;
+            height: 15px;
+            margin-right: 5px;
+        }
+
+    .login-form form button {
+        margin-top: 23px;
+    }
+
+    .login-form form button,
+    .signup-form form button {
+        background: #D10024;
+        border: medium none;
+        border-radius: 0;
+        color: #FFFFFF;
+        display: block;
+        font-family: 'Roboto', sans-serif;
+        padding: 6px 25px;
+    }
+
+    .login-form label {
+    }
+
+        .login-form label input {
+            border: medium none;
+            display: inline-block;
+            height: 0;
+            margin-bottom: 0;
+            outline: medium none;
+            padding-left: 0;
+        }
+
+    .or {
+        background: #D10024;
+        border-radius: 40px;
+        color: #FFFFFF;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        height: 50px;
+        line-height: 50px;
+        margin-top: 75px;
+        text-align: center;
+        width: 50px;
+    }
+</style>
 
     <section id="form">
         <!--form-->
@@ -41,8 +104,8 @@
                         <h2>Login to your account</h2>
                         <form action="/Account/Login" method="post">
 
-                            <input type="email" placeholder="Email Address" name="Email"/>
-                            <input type="password" placeholder="Password" name="Password"/>
+                            <input type="email" placeholder="Email Address" name="Email" />
+                            <input type="password" placeholder="Password" name="Password" />
 
                             <button type="submit" class="btn btn-default">Login</button>
                         </form>
@@ -51,7 +114,7 @@
                 <div class="col-sm-1">
                     <h2 class="or">OR</h2>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4">                   
                     <div class="signup-form">
                         <!--sign up form-->
                         <h2>New User Signup!</h2>
@@ -75,12 +138,3 @@
             </div>
         </div>
     </section><!--/form-->
-
-    <script src="~/Scripts/js/jquery.js"></script>
-    <script src="~/Scripts/js/price-range.js"></script>
-    <script src="~/Scripts/js/jquery.scrollUp.min.js"></script>
-    <script src="~/Scripts/js/bootstrap.min.js"></script>
-    <script src="~/Scripts/js/jquery.prettyPhoto.js"></script>
-    <script src="~/Scripts/js/main.js"></script>
-</body>
-</html>
