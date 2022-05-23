@@ -21,30 +21,36 @@
                     <li><a href="#"><i class="fa fa-envelope-o"></i> technology@marketing.com</a></li>
                     <li><a href="#"><i class="fa fa-map-marker"></i> İstanbul</a></li>
                 </ul>
+
                 <ul class="header-links pull-right">
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                         <li><a href=""><i class="fa fa-user"></i> @Session["Name"] @Session["Surname"]</a></li>
+        <li><a href=""><i class="fa fa-user"></i> @Session["Name"] @Session["Surname"]</a></li>
 
 
                         <li><a href="/Account/LogOut"><i class="fa fa-lock"></i> Logout</a></li>
-                    }
+ }
                     else
                     {
-                          <li><a href="/Account/Login"><i class="fa fa-lock"></i> Login</a></li>
-                    }
+        <li><a href="/Account/Login"><i class="fa fa-lock"></i> Login</a></li>
+}
 
                     @if (User.IsInRole("Admin"))
                     {
-                         <li><a href="/Admin/Index"><i class="fa fa-lock"></i> Admin Panel</a></li>
-                    }
+        <li><a href="/Admin/Index"><i class="fa fa-lock"></i> Admin Panel</a></li>
+}
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li><a href="/Cart/Index"><img src="~/Content/Image/sepet.png" width="30" height="30" /><label style="color:red">@*@{Html.RenderAction("TotalCount", "Cart");}*@</label>My Cart</a></li>
+        <li>
+            <a href="/Cart/Index">
+                <img src="~/img/sepet.png" width="30" height="30" />
+                <label style="color:red">@{Html.RenderAction("TotalCount", "Cart");}</label>My Cart
+            </a>
+        </li>
                         <li><a href="/Sales/Index"><i class="fa fa-dollar"></i> Sales</a></li>
-                    }
+}
                 </ul>
             </div>
         </div>
@@ -82,57 +88,9 @@
                     <!-- ACCOUNT -->
                     <div class="col-md-3 clearfix">
                         <div class="header-ctn">
-                            <!-- Wishlist -->
-                            <div>
-                                <a href="#">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span>Your Wishlist</span>
-                                    <div class="qty">2</div>
-                                </a>
-                            </div>
-                            <!-- /Wishlist -->
-                            <!-- Cart -->
-                            <div class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span>Your Cart</span>
-                                    <div class="qty">3</div>
-                                </a>
-                                <div class="cart-dropdown">
-                                    <div class="cart-list">
-                                        <div class="product-widget">
-                                            <div class="product-img">
-                                                <img src="~/img/product01.png" alt="">
-                                            </div>
-                                            <div class="product-body">
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                            </div>
-                                            <button class="delete"><i class="fa fa-close"></i></button>
-                                        </div>
 
-                                        <div class="product-widget">
-                                            <div class="product-img">
-                                                <img src="~/img/product02.png" alt="">
-                                            </div>
-                                            <div class="product-body">
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                            </div>
-                                            <button class="delete"><i class="fa fa-close"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="cart-summary">
-                                        <small>3 Item(s) selected</small>
-                                        <h5>SUBTOTAL: $2940.00</h5>
-                                    </div>
-                                    <div class="cart-btns">
-                                        <a href="#">View Cart</a>
-                                        <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Cart -->
+
+
                             <!-- Menu Toogle -->
                             <div class="menu-toggle">
                                 <a href="#">
@@ -314,6 +272,10 @@
     <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="~/Content/css/style.css" />
 
+    <link href="~/Content/css/prettyPhoto.css" rel="stylesheet">
+    <link href="~/Content/css/price-range.css" rel="stylesheet">
+    <link href="~/Content/css/animate.css" rel="stylesheet">
+    <link href="~/Content/css/responsive.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -327,5 +289,10 @@
     <script src="~/Scripts/js/nouislider.min.js"></script>
     <script src="~/Scripts/js/jquery.zoom.min.js"></script>
     <script src="~/Scripts/js/main.js"></script>
+
+
+    <script src="~/Scripts/js/price-range.js"></script>
+    <script src="~/Scripts/js/jquery.scrollUp.min.js"></script>
+    <script src="~/Scripts/js/jquery.prettyPhoto.js"></script>
 </body>
 </html>

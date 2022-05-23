@@ -1,0 +1,119 @@
+﻿@model List<technologyMarket.EntityLayer.Entitites.Cart>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Session["Name"] @Session["Surname"]</h2>
+
+<h3>MyCart</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th>Product Information</th>
+            <th>Total</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Image</th>
+            <th>Delete</th>
+            <th>Buy</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Product.Name</td>
+
+                <td>
+                    <div>
+                        @Html.ActionLink("-", "azalt", new { id = item.Id }, new { @class = "btn btn-info btn-sm azalt" })
+                    </div>
+                    <div>
+
+
+                        @Html.TextBoxFor(x => item.Quantity, new { @class = "txt", data_id = item.Id })
+
+                    </div>
+                    <div>
+                        @Html.ActionLink("+", "arttir", new { id = item.Id }, new { @class = "btn btn-info btn-sm arttir" })
+                    </div>
+                </td>
+                <td>@item.Product.Price</td>
+
+                <td>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
+                <td><img src="~/img/@item.Product.Image" width="90" height="90" /></td>
+                <td>@Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Do you want to delete?')" })</td>
+                <td><a href="/Sales/Buy/@item.Id" class="btn btn-success">Buy</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="container"> @ViewBag.Total</div>
+<br />
+<div class="container form-group">
+    <a href="/Sales/BuyAll" class="btn btn-success form-control">Buy All</a>
+</div>
+
+<div class="container form-group">
+    <a href="/Cart/DeleteRange" class="btn btn-danger form-control">Delete All</a>
+</div>
+
+
+<style>
+    .txt {
+        line-height: 18px;
+        padding: 0 4px 10px 4px;
+        width: 50px !important;
+        height: 32px;
+        font-size: 14px;
+        text-align: center;
+        border: solid 1px #ccc;
+        margin-left: 23px;
+    }
+
+    .arttir {
+        display: block;
+        cursor: pointer;
+        border: solid 1px #ccc;
+        /*text-align: center;
+
+    font-size: 18px;*/
+        position: absolute;
+        margin-top: -32px;
+        margin-left: 75px;
+    }
+
+    .azalt {
+        display: block;
+        border: solid 1px #ccc;
+        cursor: pointer;
+        position: absolute;
+        margin-right: 90px;
+    }
+</style>
+
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+
+<script>
+    $(function () {
+
+        $('.txt').on('change', function () {
+            var miktar = $(this).val();
+            var sepetid = $(this).attr('data-id');
+            $.ajax({
+                url: '/Cart/DinamikMiktar',
+                data: { id: sepetid, miktari: miktar },
+                success: function (res) {
+
+                    document.location.reload();
+                }
+
+
+            });
+
+        });
+    });
+</script>

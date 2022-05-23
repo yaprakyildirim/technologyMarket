@@ -29,7 +29,7 @@ namespace technologyMarket.Controllers
                 Session["Name"] = informations.Name.ToString();
                 Session["Surname"] = informations.Surname.ToString();
                 Session["userid"] = informations.Id.ToString();
-                return RedirectToActionPermanent("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.hata = "Your e-mail or password incorrect";
             return View(data);
@@ -49,10 +49,11 @@ namespace technologyMarket.Controllers
             return View("Login", data);
         }
 
+        [HttpGet]
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToActionPermanent("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

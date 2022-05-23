@@ -57,10 +57,9 @@
     <Compile Include="Concrete\ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\technologyMarket.DataAccessLayer\technologyMarket.DataAccessLayer.csproj">
-      <Project>{163879D7-05A8-4D7D-80BD-F348B16DC7D2}</Project>
+      <Project>{163879d7-05a8-4d7d-80bd-f348b16dc7d2}</Project>
       <Name>technologyMarket.DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\technologyMarket.EntityLayer\technologyMarket.EntityLayer.csproj">

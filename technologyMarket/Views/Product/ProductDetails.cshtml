@@ -1,0 +1,174 @@
+﻿@model technologyMarket.EntityLayer.Entitites.Product
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Product Detay | Technology Market</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/prettyPhoto.css" rel="stylesheet">
+    <link href="~/Content/price-range.css" rel="stylesheet">
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/main.css" rel="stylesheet">
+    <link href="~/Content/responsive.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="img/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/img/ico/apple-touch-icon-57-precomposed.png">
+
+</head><!--/head-->
+
+<body>
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                @Html.Action("CategoryList", "Category")
+
+                <div class="col-sm-9 padding-right">
+                    <div class="product-details">
+                        <!--product-details-->
+                        <div class="col-sm-5">
+                            <div class="view-product">
+                                <img src="~/img/@Model.Image" style="width:300px; height:240px; margin-top:20px" alt="@Model.Name" />
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="product-information">
+
+                                <h2> @Model.Name</h2>
+
+
+                                <span>
+                                    <span>@Model.Price TL</span>
+
+
+
+
+                                    <a class="btn btn-fefault cart" style="margin-top:15px" href="/Cart/AddCart/@Model.Id">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Add to Cart
+                                    </a>
+                                </span>
+                                <p><b>Category:</b> @Model.Category.Name</p>
+                                <p><b>Stock:</b> @Model.Stock</p>
+                                <p><b>Popular:</b> @Model.Popular</p>
+                                <p><b>Approved:</b> @Model.IsApproved</p>
+                                <p><b>Description:</b> @Model.Description</p>
+                                <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt="" /></a>
+                            </div><!--/product-information-->
+                        </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Comment
+                        </button>
+
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" action="/Product/Comment">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Write Your Comment...</h5>
+
+                                        </div>
+                                        <div class="modal-body">
+                                            <textarea class="form-control" name="Contents" placeholder="Write Your Comment..."></textarea>
+                                            <input type="hidden" name="ProductId" value="@Model.Id" />
+                                            <input type="hidden" name="UserId" value="@Session["userid"]" />
+                                            <input type="hidden" name="Date" value="@DateTime.Now" />
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Send</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+
+
+                                @foreach (var item in ViewBag.yorum)
+                                {
+                                <h4 style="color:coral">
+                                    @item.Date <br /> <br /> @item.User.Name @item.User.Surname
+                                </h4>
+                                    <p>@item.Contents </p>
+                                    <hr />
+                                }
+                            </div>
+                        </div>
+                    </div><!--/product-details-->
+
+                    @Html.Action("PopularProduct", "Product")
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    @*<script src="~/eshop/js/jquery.js"></script>
+        <script src="~/eshop/js/price-range.js"></script>
+        <script src="~/eshop/js/jquery.scrollUp.min.js"></script>
+        <script src="~/eshop/js/bootstrap.min.js"></script>
+        <script src="~/eshop/js/jquery.prettyPhoto.js"></script>
+        <script src="~/eshop/js/main.js"></script>*@
+
+    @*<script type="text/javascript">
+            $(document).ready(function () {
+                $("#gonder").click(function () {
+                    bootbox.confirm("Yorumunuz gönderiliyor emin misiniz?", function (result) {
+                        if (result) {
+                            var icerikgir = $("#icerikgir").val();
+                            var userName = $("#userName").val();
+
+
+                            $.ajax({
+
+                                url: '/Product/Comment/',
+                                data: { icerik: icerikgir, productid:@Model.Id , username:userName},
+                                 type: 'POST',
+                                    dataType: 'json',
+                                    success: function (data) {
+
+
+                                }
+                                });
+                        }
+                        else
+                        {
+                            bootbox.confirm("Hata oluştu")
+                        }
+                    })
+
+
+                });
+            })
+        </script>*@
+</body>
+</html>
