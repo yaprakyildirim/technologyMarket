@@ -1,0 +1,50 @@
+﻿@model List<technologyMarket.EntityLayer.Entitites.Cart>
+@{
+    ViewBag.Title = "Buyall";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div clas="container">
+        <h2>Hello, @Session["Name"] @Session["Surname"] welcome to the purchase page</h2>
+    </div>
+
+    <div class="container">
+        @using (Html.BeginForm("BuyAll2", "Sales", FormMethod.Post))
+        {
+            foreach (var item in Model)
+            {
+                <div class="form-group">
+                    <h5>ID: @Html.DisplayFor(x => item.Id)</h5>
+                </div>
+
+                <div class="form-group">
+                    <h5>Product Name: @Html.DisplayFor(x => item.Product.Name)</h5>
+                </div>
+
+                <div class="form-group">
+                    <h5>Quantity: @Html.DisplayFor(x => item.Quantity)</h5>
+                </div>
+
+                <div class="form-group">
+                    <h5>Price: @Html.DisplayFor(x => item.Price)</h5>
+                </div>
+
+                <div class="form-group">
+                    <h5>Image: <img src="~/img/@item.Product.Image" width="50" height="50" /></h5>
+                </div>
+            }
+
+            <p style="color:red; text-align:center">@ViewBag.Tutar</p>
+            <div class="container">
+                <div class="form-group" style="float:left">
+                    <button class="btn btn-success">Confirm</button>
+                </div>
+
+                <div style="float:right">
+                    <a href="/Cart/Index" class="btn btn-danger">Cancel</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
