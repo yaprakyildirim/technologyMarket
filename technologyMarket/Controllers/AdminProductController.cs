@@ -105,5 +105,23 @@ namespace technologyMarket.Controllers
             }
             return View(update);
         }
+
+        public ActionResult CriticalStock()
+        {
+            var critic = db.Products.Where(x => x.Stock <= 50).ToList();
+            return View(critic);
+        }
+
+        public PartialViewResult StockCount()
+        {
+            if(User.Identity.IsAuthenticated)
+            {
+                var count = db.Products.Where(x => x.Stock < 50).Count();
+                ViewBag.count = count;
+                var azalan = db.Products.Where(x => x.Stock == 50).Count();
+                ViewBag.azalan = azalan;
+            }
+            return PartialView();
+        }
     }
 }

@@ -141,6 +141,7 @@
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminProductController.cs" />
+    <Compile Include="Controllers\AdminSalesController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -991,11 +992,17 @@
     <Content Include="Views\Admin\Comment.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\TotalCount.cshtml" />
+    <Content Include="Views\Sales\Index.cshtml" />
+    <Content Include="Views\Sales\process.cshtml" />
+    <Content Include="Views\Sales\Buy.cshtml" />
+    <Content Include="Views\Sales\Buyall.cshtml" />
+    <Content Include="Views\AdminProduct\CriticalStock.cshtml" />
+    <Content Include="Views\AdminProduct\StockCount.cshtml" />
+    <Content Include="Views\AdminSales\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\Entity\" />
-    <Folder Include="Views\Sales\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

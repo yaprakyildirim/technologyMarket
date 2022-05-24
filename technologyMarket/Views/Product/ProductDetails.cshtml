@@ -70,8 +70,30 @@
                                 </span>
                                 <p><b>Category:</b> @Model.Category.Name</p>
                                 <p><b>Stock:</b> @Model.Stock</p>
-                                <p><b>Popular:</b> @Model.Popular</p>
-                                <p><b>Approved:</b> @Model.IsApproved</p>
+                                <p>
+                                    <b>Popular:</b>
+                                    @if (Model.Popular == true)
+                                    {
+                                        <b style="color:green">Yes</b>
+                                    }
+                                    else
+                                    {
+                                <b style="color:red">No</b>
+                                    }
+
+                                </p>
+                                <p>
+                                    <b>Approved:</b>
+                                    @if (Model.IsApproved == true)
+                                    {
+                                <b style="color:green">Yes</b>
+                                    }
+                                    else
+                                    {
+                                <b style="color:red">No</b>
+                                    }
+
+                                </p>
                                 <p><b>Description:</b> @Model.Description</p>
                                 <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt="" /></a>
                             </div><!--/product-information-->
@@ -111,9 +133,9 @@
 
                                 @foreach (var item in ViewBag.yorum)
                                 {
-                                <h4 style="color:coral">
-                                    @item.Date <br /> <br /> @item.User.Name @item.User.Surname
-                                </h4>
+                                    <h4 style="color:coral">
+                                        @item.Date <br /> <br /> @item.User.Name @item.User.Surname
+                                    </h4>
                                     <p>@item.Contents </p>
                                     <hr />
                                 }
