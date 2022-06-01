@@ -26,7 +26,7 @@
 
                     @if (User.Identity.IsAuthenticated)
                     {
-        <li><a href=""><i class="fa fa-user"></i> @Session["Name"] @Session["Surname"]</a></li>
+        <li><a href="/User/Update"><i class="fa fa-user"></i> @Session["Name"] @Session["Surname"]</a></li>
 
 
                         <li><a href="/Account/LogOut"><i class="fa fa-lock"></i> Logout</a></li>

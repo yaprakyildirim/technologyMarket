@@ -21,10 +21,10 @@ namespace technologyMarket.EntityLayer.Entitites
         [StringLength(50, ErrorMessage = "Must be a maximum of 50 characters.")]
         public string Surname { get; set; }
 
-        [Required(ErrorMessage = "You cannot leave the required field blank.")]
-        [Display(Name = "Email")]
-        [StringLength(50, ErrorMessage = "Must be a maximum of 50 characters.")]
-        [EmailAddress(ErrorMessage ="Must be a E-mail format.")]
+        //[Required(ErrorMessage = "You cannot leave the required field blank.")]
+        //[Display(Name = "Email")]
+        //[StringLength(50, ErrorMessage = "Must be a maximum of 50 characters.")]
+        //[EmailAddress(ErrorMessage ="Must be a E-mail format.")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "You cannot leave the required field blank.")]
@@ -32,17 +32,17 @@ namespace technologyMarket.EntityLayer.Entitites
         [StringLength(50, ErrorMessage = "Must be a maximum of 50 characters.")]
         public string Username { get; set; }
 
-        [Required(ErrorMessage = "You cannot leave the required field blank.")]
-        [Display(Name = "Password")]
-        [StringLength(10, ErrorMessage = "Must be a maximum of 10 characters.")]
-        [DataType(DataType.Password)]
+        //[Required(ErrorMessage = "You cannot leave the required field blank.")]
+        //[Display(Name = "Password")]
+        //[StringLength(10, ErrorMessage = "Must be a maximum of 10 characters.")]
+        //[DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "You cannot leave the required field blank.")]
-        [Display(Name = "RePassword")]
-        [StringLength(10, ErrorMessage = "Must be a maximum of 10 characters.")]
-        [DataType(DataType.Password)]
-        [Compare("Password",ErrorMessage ="Passwords do not match!")]
+        //[Required(ErrorMessage = "You cannot leave the required field blank.")]
+        //[Display(Name = "RePassword")]
+        //[StringLength(10, ErrorMessage = "Must be a maximum of 10 characters.")]
+        //[DataType(DataType.Password)]
+        //[Compare("Password",ErrorMessage ="Passwords do not match!")]
         public string RePassword { get; set; }
 
         [StringLength(10, ErrorMessage = "Must be a maximum of 10 characters.")]

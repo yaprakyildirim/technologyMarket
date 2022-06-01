@@ -9,6 +9,7 @@ using PagedList.Mvc;
 
 namespace technologyMarket.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -29,6 +30,20 @@ namespace technologyMarket.Controllers
             DB.Comments.Remove(delete);
             DB.SaveChanges();
             return RedirectToAction("Comment");
+        }
+
+        public ActionResult UserList()
+        {
+            var user = DB.Users.Where(x => x.Role == "User").ToList();
+            return View(user);
+        }
+
+        public ActionResult UserDelete(int id)
+        {
+            var userid = DB.Users.Where(x => x.Id == id).FirstOrDefault();
+            DB.Users.Remove(userid);
+            DB.SaveChanges();
+            return RedirectToAction("UserList");
         }
     }
 }

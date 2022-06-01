@@ -9,6 +9,7 @@ using technologyMarket.DataAccessLayer.Context;
 
 namespace technologyMarket.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminSalesController : Controller
     {
         // GET: AdminSales
