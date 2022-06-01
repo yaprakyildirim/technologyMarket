@@ -1,0 +1,28 @@
+﻿@model List<technologyMarket.EntityLayer.Entitites.User>
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>USERS</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name Surname</th>
+        <th>Email</th>
+        <th>User Name</th>
+        <th>Password</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name @item.Surname</td>
+            <td>@item.Email</td>
+            <td>@item.Username</td>
+            <td>@item.Password</td>
+            <td>@Html.ActionLink("Sil", "UserDelete", new { item.Id }, new { @class = "btn btn-danger", onclick = "return confirm ('Do you want to delete?')" })
+        </tr>
+    }
+</table>
+
