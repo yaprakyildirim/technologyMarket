@@ -140,6 +140,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminIstatisticController.cs" />
     <Compile Include="Controllers\AdminProductController.cs" />
     <Compile Include="Controllers\AdminSalesController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -147,11 +148,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\AdminRoleProvider.cs" />
+    <Compile Include="SeoUrl\Seo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -999,6 +1002,9 @@
     <Content Include="Views\AdminProduct\CriticalStock.cshtml" />
     <Content Include="Views\AdminProduct\StockCount.cshtml" />
     <Content Include="Views\AdminSales\Index.cshtml" />
+    <Content Include="Views\User\Update.cshtml" />
+    <Content Include="Views\Admin\UserList.cshtml" />
+    <Content Include="Views\AdminIstatistic\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

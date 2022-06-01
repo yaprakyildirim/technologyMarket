@@ -12,6 +12,7 @@ using PagedList.Mvc;
 
 namespace technologyMarket.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminProductController : Controller
     {
         // GET: AdminProduct

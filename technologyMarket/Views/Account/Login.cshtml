@@ -123,13 +123,13 @@
                             @Html.ValidationMessageFor(x => x.Name, "", new { @style = "color:red" })
                             <input type="text" placeholder="Surname" name="Surname" />
                             @Html.ValidationMessageFor(x => x.Surname, "", new { @style = "color:red" })
-                            <input type="email" placeholder="Email Address" name="Email" />
+                            <input type="email" placeholder="Email Address" name="Email" required maxlength="50" />
                             @Html.ValidationMessageFor(x => x.Email, "", new { @style = "color:red" })
                             <input type="text" placeholder="User Name" name="Username" />
                             @Html.ValidationMessageFor(x => x.Username, "", new { @style = "color:red" })
-                            <input type="password" placeholder="Password" name="Password" />
+                            <input type="password" placeholder="Password" name="Password" required maxlength="250" />
                             @Html.ValidationMessageFor(x => x.Password, "", new { @style = "color:red" })
-                            <input type="password" placeholder="Repassword" name="RePassword" />
+                            <input type="password" placeholder="Repassword" name="RePassword" required maxlength="250" />
                             @Html.ValidationMessageFor(x => x.RePassword, "", new { @style = "color:red" })
                             <button type="submit" class="btn btn-default">Signup</button>
                         </form>

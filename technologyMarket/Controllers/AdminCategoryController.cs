@@ -8,6 +8,7 @@ using technologyMarket.EntityLayer.Entitites;
 
 namespace technologyMarket.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminCategoryController : Controller
     {
         // GET: AdminCategory

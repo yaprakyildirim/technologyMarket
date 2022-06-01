@@ -1,4 +1,5 @@
-﻿@model List<technologyMarket.EntityLayer.Entitites.Product>
+﻿@using technologyMarket.SeoUrl
+@model List<technologyMarket.EntityLayer.Entitites.Product>
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -75,10 +76,10 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
 
-                                        <a href="/Product/Details/@item.Id"><img src="~/img/@item.Image" width="65" height="110" alt="" /></a>
+                                        <a href="/Product/ProductDetails/@item.Id/@(Seo.AdresDuzenle(item.Name))"><img src="~/img/@item.Image" width="65" height="110" alt="" /></a>
                                         <h2>@item.Price</h2>
                                         <p>@item.Name</p>
-                                        <a href="/Product/ProductDetails/@item.Id" class="btn btn-default add-to-cart">Product Details</a>
+                                        <a href="/Product/ProductDetails/@item.Id/@(Seo.AdresDuzenle(item.Name))" class="btn btn-default add-to-cart">Product Details</a>
                                     </div>
 
                                 </div>

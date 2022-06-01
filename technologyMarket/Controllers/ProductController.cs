@@ -20,6 +20,7 @@ namespace technologyMarket.Controllers
             ViewBag.popular = product;
             return PartialView();
         }
+        [Route("product/productdetails/{id}/{name}")]
         public ActionResult ProductDetails(int id)
         {
             var details = productRepository.GetById(id);
