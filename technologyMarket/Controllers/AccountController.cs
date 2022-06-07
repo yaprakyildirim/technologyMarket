@@ -39,7 +39,7 @@ namespace technologyMarket.Controllers
         public ActionResult Register(User data)
         {
             if (ModelState.IsValid)
-            {
+            {             
                 db.Users.Add(data);
                 data.Role = "User";
                 db.SaveChanges();
