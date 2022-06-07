@@ -21,7 +21,7 @@ namespace technologyMarket.Controllers
 
         public ActionResult Comment(int sayfa=1)
         {
-            return View(DB.Comments.ToList().ToPagedList(sayfa,3));
+            return View(DB.Comments.ToList().ToPagedList(sayfa,6));
         }
 
         public ActionResult Delete(int id)
